@@ -10,7 +10,8 @@ import analyser
 for gallery_dir in gallery_dirs:
     gallery_index = join(galleries_dir, gallery_dir, 'gallery.yaml')
     if isfile(gallery_index):
-        analyser.analyse_gallery_yaml(gallery_index)
+        text_stats = analyser.analyse_gallery_yaml(gallery_index)
+        print(text_stats)
     else:
         print('File %s does not exist.'% gallery_index)
     print

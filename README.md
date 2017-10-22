@@ -15,6 +15,8 @@ Using Python 2. Anaconda installed.
 
 `>>> nltk.download('punkt')`
 
+`>>> nltk.download('english')`
+
 `pip install textblob`
 
 `pip install pyaml`

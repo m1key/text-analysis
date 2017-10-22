@@ -1,3 +1,4 @@
 import analyser
 
-analyser.analyse_gallery_yaml('gallery.yaml')
+text_stats = analyser.analyse_gallery_yaml('gallery.yaml')
+print(text_stats)
