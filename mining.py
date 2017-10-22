@@ -14,13 +14,15 @@ print(df.sort_values(['word_count'], ascending=[0]).head(10)[['name', 'word_coun
 print("Fewest words:")
 print(df.sort_values(['word_count'], ascending=[1]).head(10)[['name', 'word_count']])
 
-print
-
 print("Most unique words:")
 print(df.sort_values(['unique_word_count'], ascending=[0]).head(10)[['name', 'unique_word_count']])
 
 print("Fewest unique words:")
 print(df.sort_values(['unique_word_count'], ascending=[1]).head(10)[['name', 'unique_word_count']])
+
+print
+
+print("Average unique words: %f" % df["unique_word_count"].mean())
 
 print
 
