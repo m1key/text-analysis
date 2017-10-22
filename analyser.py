@@ -1,18 +1,20 @@
 class TextStats():
         word_count = 0
+        unique_word_count = 0
         sentence_count = 0
+        word_per_sentence_count = 0
         polarity = 0
         subjectivity = 0
-        words_per_sentence = 0
         counts = None
 
         def __str__(self):
-            return(("[word count: %d, sentence count: %d, polarity: %f, " +
-                "subjectivity: %f, words per sentence: %f, unique words: %d, " +
-                "most common words: %s]") %
-                    (self.word_count, self.sentence_count, self.polarity,
-                        self.subjectivity, self.words_per_sentence,
-                        self.unique_words, self.counts.most_common(5)))
+            return(("[word count: %d, unique word count: %d, " +
+                "sentence count: %d, word per sentence count: %f, " +
+                "polarity: %f, subjectivity: %f, most common words: %s]") %
+                    (self.word_count, self.unique_word_count,
+                        self.sentence_count,
+                        self.word_per_sentence_count, self.polarity,
+                        self.subjectivity, self.counts.most_common(5)))
 
 # Cleanse the data.
 import re
@@ -36,7 +38,7 @@ def analyse_plain_text(test_data) :
     text_stats.subjectivity = zen.sentiment.subjectivity
 
     from textstat.textstat import textstat
-    text_stats.words_per_sentence = (textstat.lexicon_count(test_data, False) /
+    text_stats.word_per_sentence_count = (textstat.lexicon_count(test_data, False) /
         textstat.sentence_count(test_data))
 
     # Convert all to lower.
@@ -67,7 +69,7 @@ def analyse_plain_text(test_data) :
     # How many unique words?
     from collections import Counter
     counts = Counter(filtered)
-    text_stats.unique_words = len(counts)
+    text_stats.unique_word_count = len(counts)
 
     # Words sorted by most common.
     text_stats.counts = counts
