@@ -14,3 +14,5 @@ Using Python 2. Anaconda installed.
 `>>> import nltk`
 
 `>>> nltk.download('punkt')`
+
+`pip install textblob`

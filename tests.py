@@ -88,3 +88,11 @@ filtered = [w for w in words if nonPunct.match(w)]
 counts = Counter(filtered)
 print(counts)
 print('Unique words: ' + str(len(counts)))
+
+
+from textblob import TextBlob
+
+zen = TextBlob(test_data)
+print('Word count: ' + str(len(zen.words)))
+print('Sentence count: ' + str(len(zen.sentences)))
+print('Sentiment: ' + str(zen.sentiment))
