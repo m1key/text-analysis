@@ -5,7 +5,7 @@ files.
 
 ## Setup
 
-Using Python 2. Anaconda installed.
+Using Python 2. Only `mining.py` requires Anaconda.
 
 `pip install textstat`
 
@@ -20,6 +20,14 @@ Using Python 2. Anaconda installed.
 `pip install textblob`
 
 `pip install pyaml`
+
+### Setup for Anaconda
+
+If Anaconda is installed, the following must run.
+
+`conda install -c conda-forge textblob`
+
+`conda install -c mlgill textstat`
 
 ## Simple run
 

@@ -66,7 +66,7 @@ print('Dale-Chall Readability Score: ' +
 
 # Built-in overall.
 print('Overall grade required to comprehend at first reading: ' +
-    str(textstat. text_standard(test_data)))
+    str(textstat.text_standard(test_data)))
 
 
 from nltk.stem import PorterStemmer

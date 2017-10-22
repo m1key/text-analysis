@@ -1,3 +1,5 @@
+from __future__ import division
+
 class TextStats():
         word_count = 0
         unique_word_count = 0
@@ -63,7 +65,8 @@ def analyse_plain_text(test_data) :
     # Remove stopwords:
     from nltk.corpus import stopwords
     stopwords = set(stopwords.words('english'))
-    extra_stopwords = set(['that', '\'s', 'wa', 'thi'])
+    extra_stopwords = set(['that', '\'s', 'wa', 'thi', 'like', 'n\'t', 'would',
+        'ha', 'us', 'get'])
     filtered = [w for w in filtered if w not in stopwords and w not in extra_stopwords]
 
     # How many unique words?
@@ -78,6 +81,12 @@ def analyse_plain_text(test_data) :
 
 
 def analyse_gallery_yaml(file_name) :
+    plain_text = extract_plain_text_from_gallery_yaml(file_name)
+
+    return analyse_plain_text(plain_text)
+
+
+def extract_plain_text_from_gallery_yaml(file_name) :
     # Grab only text from the yaml file.
     test_data = ''
     import yaml
@@ -88,4 +97,4 @@ def analyse_gallery_yaml(file_name) :
         for p in doc["photos"]:
             test_data = test_data + ' ' + prepare(p['description'])
 
-    return analyse_plain_text(test_data)
+    return test_data
