@@ -41,9 +41,10 @@ if options.output != None:
     with open(options.output, 'wb') as outcsv:
         writer = csv.writer(outcsv)
         writer.writerow(["name", "word_count", "unique_word_count", "sentence_count",
-            "word_per_sentence_count", "polarity", "subjectivity"])
+            "word_per_sentence_count", "flesch_reading_ease", "polarity",
+            "subjectivity"])
         for stat in stats:
             writer.writerow([stat[0], stat[1].word_count,
                 stat[1].unique_word_count, stat[1].sentence_count,
-                stat[1].word_per_sentence_count, stat[1].polarity,
-                stat[1].subjectivity])
+                stat[1].word_per_sentence_count, stat[1].flesch_reading_ease,
+                stat[1].polarity, stat[1].subjectivity])

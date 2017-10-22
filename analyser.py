@@ -7,16 +7,19 @@ class TextStats():
         word_per_sentence_count = 0
         polarity = 0
         subjectivity = 0
+        flesch_reading_ease = 0
         counts = None
 
         def __str__(self):
             return(("[word count: %d, unique word count: %d, " +
                 "sentence count: %d, word per sentence count: %f, " +
-                "polarity: %f, subjectivity: %f, most common words: %s]") %
+                "polarity: %f, subjectivity: %f, flesch_reading_ease: %f, " +
+                "most common words: %s]") %
                     (self.word_count, self.unique_word_count,
                         self.sentence_count,
                         self.word_per_sentence_count, self.polarity,
-                        self.subjectivity, self.counts.most_common(5)))
+                        self.subjectivity, self.flesch_reading_ease,
+                        self.counts.most_common(5)))
 
 # Cleanse the data.
 import re
@@ -39,6 +42,11 @@ def analyse_plain_text(test_data) :
     text_stats.polarity = zen.sentiment.polarity
     text_stats.subjectivity = zen.sentiment.subjectivity
 
+    # Easy to read, this?
+    from textstat.textstat import textstat
+    text_stats.flesch_reading_ease = textstat.flesch_reading_ease(test_data)
+
+    # Words per sentence count.
     from textstat.textstat import textstat
     text_stats.word_per_sentence_count = (textstat.lexicon_count(test_data, False) /
         textstat.sentence_count(test_data))

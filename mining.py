@@ -45,3 +45,11 @@ print(df.sort_values(['subjectivity'], ascending=[0]).head(10)[['name', 'subject
 
 print("Least subjective galleries:")
 print(df.sort_values(['subjectivity'], ascending=[1]).head(10)[['name', 'subjectivity']])
+
+print
+
+print("Most easy to read galleries:")
+print(df.sort_values(['flesch_reading_ease'], ascending=[0]).head(10)[['name', 'flesch_reading_ease']])
+
+print("Least easy to read galleries:")
+print(df.sort_values(['flesch_reading_ease'], ascending=[1]).head(10)[['name', 'flesch_reading_ease']])
